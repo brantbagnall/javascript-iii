@@ -49,13 +49,10 @@ function showValues(obj) {
 
 // CODE HERE
 function greaterThan10(obj) {
-  var final = [];
   for (var prop in obj) {
     if (obj[prop] > 10) {
       obj[prop] = 0;
-      final[prop] = obj[prop];
     }
-    // return obj;
   }
   return obj;
 }
