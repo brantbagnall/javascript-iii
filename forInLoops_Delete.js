@@ -13,7 +13,7 @@
 //   three: ' the',
 //   four: ' property',
 //   five: ' values.'
-// } 
+// }
 
 // for(var key in values) {
 //   console.log(values[key])
@@ -31,8 +31,14 @@
 
 // Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 
-function showValues( obj ) {
+function showValues(obj) {
   // CODE HERE
+  var final = [];
+  for (var prop in obj) {
+    final = final.concat(obj[prop]);
+
+  }
+  return final.join('');
 }
 
 
@@ -42,7 +48,17 @@ function showValues( obj ) {
 // Write a function called greaterThan10 that takes in an object. Write a for in loop that loops over the object and changes any value that is great than 10 to 0. Return the updated object.
 
 // CODE HERE
-
+function greaterThan10(obj) {
+  var final = [];
+  for (var prop in obj) {
+    if (obj[prop] > 10) {
+      obj[prop] = 0;
+      final[prop] = obj[prop];
+    }
+    // return obj;
+  }
+  return obj;
+}
 
 
 // ========================
@@ -98,7 +114,7 @@ var deleteTheBigNumbers = {
   second: 20,
   third: 110,
   fourth: 200
-}
+};
 
 // CODE HERE
 
