@@ -139,7 +139,11 @@ var myCar = {
 };
 
 // Code here
-
+function recordCleaner() {
+  myCar.accidents.forEach(function(obj) {
+    obj.atFaultForAccident = false;
+  });
+}
 
 
 
@@ -162,3 +166,18 @@ var numsArr = [
   [5, 6],
   [7, 8, 9, 10, 11]
 ];
+
+
+function looper() {
+  var newobj = Object.assign({}, numsArr);
+  for (var i = 0; i < numsArr.length; i++) {
+    for (var a = 0; a < numsArr[i].length; a++) {
+      if (numsArr[i][a] % 2 === 0) {
+        newobj[i].splice(a, 1, 'even');
+      } else {
+        newobj[i].splice(a, 1, 'odd');
+      }
+    }
+  }
+  return newobj;
+}
