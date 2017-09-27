@@ -87,7 +87,37 @@ Everytime they fire an employee they get a bonus of $100 add to their .
 
 call you class ProgressiveManager
 */
-
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age, reports) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = 'Not a manager';
+    this.bonus = 0;
+  }
+  hire(emp) {
+    this.reports.push(emp);
+    if (this.reports.length === 0) {
+      this.title = 'Not a manager';
+    } else if (this.reports.length >= 1 && this.reports.length <= 3) {
+      this.title = 'Barely Manager';
+    } else if (this.reports.length >= 4 && this.reports.length <= 10) {
+      this.title = 'Mostly Manager';
+    } else if (this.reports.length >= 11 && this.reports.length <= 50) {
+      this.title = 'Manager';
+    } else if (this.reports.length >= 51 && this.reports.length <= 100) {
+      this.title = 'Manager Plus';
+    } else if (this.reports.length >= 101) {
+      this.title = 'Bestest Manager';
+    }
+  }
+  fire(index) {
+    this.reports.splice(index, 1);
+    this.bonus += 100;
+  }
+}
 
 
 
@@ -113,3 +143,25 @@ It can :
       It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 
 */
+
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(num) {
+    this.widgets_made_count += num;
+    // var num2 = num / 50;
+    //num2 = Math.floor(num2);
+    this.wear_and_tear_count += num / 50;
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+  reboot() {
+    this.wear_and_tear_count -= 10;
+    this.needs_reboot = false;
+    return function rebootComplete() {};
+  }
+}
