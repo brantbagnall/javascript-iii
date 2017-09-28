@@ -261,5 +261,5 @@ const purchases = [{
 let bobsTotal = purchases.filter((elem) => {
   return elem.owner == 'Bob';
 }).reduce((acc, curr) => {
-  return acc + curr.price;
-}); // Your code here
+  return acc += curr.price;
+}, 0); // Your code here
